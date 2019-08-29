@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    >
+    <!-- main colors https://colorhunt.co/palette/67108 -->
+    <gradient
+        android:startColor="#3d1860"
+        android:endColor="#3d1860"
+        />
+     <stroke
+            android:width="2dp"
+            android:color="@color/White" />
+
+
+
+</shape>
+

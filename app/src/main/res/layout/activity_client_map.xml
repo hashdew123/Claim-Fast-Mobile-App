@@ -19,7 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logout"
-        android:layout_gravity="top"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:width="30dp"
+        android:height="10dp"
+        android:background="@drawable/click_button"
+        android:textColor="@color/White"
         android:text="LOG OUT"/>
 
     <Button
@@ -28,6 +34,8 @@
         android:id="@+id/request"
         android:text="Request near by agent"
         android:layout_gravity="bottom"
+        android:background="@drawable/btn_map"
+        android:textColor="@color/White"
         />
 
 
