@@ -3,8 +3,8 @@
     >
     <!-- main colors https://colorhunt.co/palette/67108 -->
     <gradient
-        android:startColor="#3d1860"
-        android:endColor="#3d1860"
+        android:startColor="#AC7DD6"
+        android:endColor="#BD7DFC"
         />
 
     <corners
