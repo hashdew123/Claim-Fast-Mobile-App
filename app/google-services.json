@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "669704482707",
+    "firebase_url": "https://claimfast2.firebaseio.com",
+    "project_id": "claimfast2",
+    "storage_bucket": "claimfast2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669704482707:android:d8872ae6dad8118b",
+        "android_client_info": {
+          "package_name": "com.example.claimfast2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669704482707-m8mnsjr0l10n3v8o4esqli6s79rp24l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.claimfast2",
+            "certificate_hash": "24043c6d02d133f4f2acd6c245e90dd6da6a0fef"
+          }
+        },
+        {
+          "client_id": "669704482707-afcmv750tk8v2l89gtu8ov1s6f23jfj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM9n0qWF7Qtvcp7uK9tmEkQdLClg32wb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669704482707-afcmv750tk8v2l89gtu8ov1s6f23jfj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

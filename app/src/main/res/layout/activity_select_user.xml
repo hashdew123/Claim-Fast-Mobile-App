@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/drag_bg"
+    tools:context=".selectUser"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imgView_logo"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_small" />
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/White"
+            android:layout_gravity="center"
+
+            android:textSize="40dp"
+            android:text="Login as" />
+
+
+        <Button
+            android:id="@+id/bClient"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="31dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="roboto-bold"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            android:text="Client"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+
+            />
+
+        <Button
+            android:id="@+id/bAgent"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="roboto-bold"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            android:text="Agent"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:layout_below="@id/bClient"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
