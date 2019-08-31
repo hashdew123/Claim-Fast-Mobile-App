@@ -38,6 +38,19 @@
         android:textColor="@color/White"
         />
 
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="640dp"
+        android:fontFamily="Roboto-bold"
+        android:text="Distance"
+        android:layout_above="@+id/request"
+        android:textAlignment="center"
+        android:textColor="@color/White"
+        android:background="@drawable/btn_map"
+        android:textSize="25dp" />
+
 
 
 </FrameLayout>
