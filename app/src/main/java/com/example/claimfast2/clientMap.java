@@ -45,7 +45,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
     GoogleApiClient mGoogleApiClient;
     Location mlastLocation;
     LocationRequest mLocationRequest;
-    private Button bLogout, bRequest;
+    private Button bLogout, bRequest,tdistance;
     private LatLng accidentLocation;
     private SupportMapFragment mapFragment;
     private boolean requestBol = false;
@@ -211,10 +211,14 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
 
                         float distance = locl.distanceTo(loc2);
 
+                        tdistance = (Button) findViewById(R.id.tdistance);
+
+                        tdistance.setText("hey hey");
+
                         if(distance<100){
-                            bRequest.setText("Agent is here");
+                            tdistance.setText("Agent is here");
                         }else{
-                            bRequest.setText("Agent Found: "+ String.valueOf(distance));
+                            tdistance.setText("Agent Found: "+ String.valueOf(distance));
                         }
 
                         mAgentMarker = mMap.addMarker(new MarkerOptions().position(agentLatLng).title("Your Agent"));
