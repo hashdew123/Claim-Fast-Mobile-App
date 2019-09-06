@@ -7,4 +7,7 @@
     <color name="Transparent">#00000000</color>
     <color name="gradStart">#51007a</color>
     <color name="gradStop">#a709f7</color>
+    <color name="Dark">#000000</color>
+    <color name="graylight">#fafafa</color>
+
 </resources>
