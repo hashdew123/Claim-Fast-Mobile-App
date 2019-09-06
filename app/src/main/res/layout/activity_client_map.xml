@@ -16,17 +16,29 @@
         tools:context=".agentMap" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:id="@+id/logout"
         android:layout_gravity="top|right"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:layout_marginRight="10dp"
-        android:width="30dp"
-        android:height="10dp"
         android:background="@drawable/click_button"
         android:textColor="@color/White"
         android:text="LOG OUT"/>
+
+    <Button
+        android:id="@+id/bdistance"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:fontFamily="Roboto-bold"
+        android:text="Distance Test"
+        android:layout_above="@+id/request"
+        android:textAlignment="center"
+        android:layout_gravity="left"
+        android:textColor="@color/White"
+        android:background="@color/colorPrimary"
+        android:textSize="15dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -38,18 +50,7 @@
         android:textColor="@color/White"
         />
 
-    <Button
-        android:id="@+id/tdistance"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="640dp"
-        android:fontFamily="Roboto-bold"
-        android:text="Distance"
-        android:layout_above="@+id/request"
-        android:textAlignment="center"
-        android:textColor="@color/White"
-        android:background="@drawable/btn_map"
-        android:textSize="25dp" />
+
 
 
 
