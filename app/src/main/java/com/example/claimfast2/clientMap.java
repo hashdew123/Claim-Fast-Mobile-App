@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import java.util.Map;
+import java.util.Objects;
+import android.location.LocationListener;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -35,7 +37,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,11 +47,11 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
     GoogleApiClient mGoogleApiClient;
     Location mlastLocation;
     LocationRequest mLocationRequest;
-    private Button bLogout, bRequest,tdistance;
+    private Button bLogout, bRequest,bdistance;
     private LatLng accidentLocation;
     private SupportMapFragment mapFragment;
     private boolean requestBol = false;
-    Marker mAgentMarker;
+    Marker mLocationMarker;
 
 
     @Override
@@ -61,11 +63,11 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(clientMap.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
         }else{
             mapFragment.getMapAsync(this);
-        }
+        }*/
 
 
         bRequest = (Button) findViewById(R.id.request);
@@ -88,7 +90,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                 if(requestBol){
                             requestBol = false;
                             geoQuery.removeAllListeners();
-                            AgentLocationRef.removeEventListener(AgentLocationRefListener);
+                            //AgentLocationRef.removeEventListener(AgentLocationRefListener); //commented
 
                             if(agentFoundId != null){
                                 DatabaseReference agentRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Agents").child(agentFoundId);
@@ -96,14 +98,14 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                                 agentFoundId=null;
                             }
                             agentFound=false;
-                            radius=3;
+                            radius=1;
                             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("clientRequest");
                             GeoFire geoFire = new GeoFire(ref);
                             geoFire.removeLocation(userId);
 
-                            if(mAgentMarker != null){
-                                mAgentMarker.remove();
+                            if(mLocationMarker != null){
+                                mLocationMarker.remove();
                             }
                             bRequest.setText("Request another agent");
                 }else{
@@ -113,7 +115,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                     GeoFire geoFire = new GeoFire(ref);
                     geoFire.setLocation(userId, new GeoLocation(mlastLocation.getLatitude(),mlastLocation.getLongitude()));
                     accidentLocation = new LatLng(mlastLocation.getLatitude(),mlastLocation.getLongitude());
-                    mAgentMarker = mMap.addMarker(new MarkerOptions().position(accidentLocation).title("Accident here"));
+                    mLocationMarker = mMap.addMarker(new MarkerOptions().position(accidentLocation).title("Accident here"));
                     bRequest.setText("Getting your agent......");
 
                     getClosestAgent();
@@ -147,7 +149,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                     agentRef.updateChildren(map);
 
                     getAgentLocation();
-                    bRequest.setText("Looking for agent location");
+                    bRequest.setText("Looking for agent location......!");
 
                 }
 
@@ -180,6 +182,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
 
     }
 
+    private Marker mAgentMarker;
     DatabaseReference AgentLocationRef;
     private ValueEventListener AgentLocationRefListener;
     private void getAgentLocation(){
@@ -211,14 +214,14 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
 
                         float distance = locl.distanceTo(loc2);
 
-                        tdistance = (Button) findViewById(R.id.tdistance);
+                        bdistance = (Button) findViewById(R.id.bdistance);
 
-                        tdistance.setText("hey hey");
+                        bdistance.setText("hey hey");
 
                         if(distance<100){
-                            tdistance.setText("Agent is here");
+                            bdistance.setText("Agent is here");
                         }else{
-                            tdistance.setText("Agent Found: "+ String.valueOf(distance));
+                            bdistance.setText("Agent Found: "+ String.valueOf(distance));
                         }
 
                         mAgentMarker = mMap.addMarker(new MarkerOptions().position(agentLatLng).title("Your Agent"));
@@ -294,7 +297,8 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); //High accuracy means battery drains more.Choose other options for energy saving if needed.
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(clientMap.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+                //ActivityCompat.requestPermissions(clientMap.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+            return;
             }
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
@@ -311,7 +315,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
     }
 
 
-    final int LOCATION_REQUEST_CODE = 1;
+    /*final int LOCATION_REQUEST_CODE = 1;
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -325,7 +329,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                 break;
             }
         }
-    }
+    }*/
     //When a driver gets out from a activity zoom out
     @Override
     protected void onStop() {
