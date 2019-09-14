@@ -132,7 +132,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_assignment_ind_black_24dp"
+                android:src="@drawable/policy_id_vec"
                 />
             <TextView
                 android:layout_gravity="center"
@@ -152,7 +152,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_assignment_ind_black_24dp"
+                android:src="@drawable/policy_id_vec"
                 />
             <TextView
                 android:layout_gravity="center"
@@ -172,7 +172,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_assignment_ind_black_24dp"
+                android:src="@drawable/policy_id_vec"
                 />
             <TextView
                 android:layout_gravity="center"

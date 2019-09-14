@@ -74,7 +74,7 @@
         android:text="Road Assistant" />
 
     <Button
-        android:id="@+id/bMyAccount"
+        android:id="@+id/bMyProfile"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/click_button"
@@ -85,7 +85,7 @@
         android:textSize="20dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
-        android:text="My Account" />
+        android:text="My Profile" />
 
 
 </RelativeLayout>
