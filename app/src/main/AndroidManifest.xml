@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".clientUserProfile"></activity>
+        <activity android:name=".claimForm"></activity>
+        <activity android:name=".clientUserProfile" />
         <activity android:name=".agentHomePage" />
         <activity android:name=".clientMap" />
         <!--

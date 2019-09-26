@@ -8,15 +8,16 @@ import android.widget.Button;
 
 public class agentHomePage extends AppCompatActivity {
 
-    private Button nextButton;
+    private Button btn_accidentMap;
+    private Button btn_submitclaim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agent_home_page);
 
-        nextButton = (Button) findViewById(R.id.nextbutton);
+        btn_accidentMap = (Button) findViewById(R.id.accidentMap);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        btn_accidentMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(agentHomePage.this, agentMap.class);
