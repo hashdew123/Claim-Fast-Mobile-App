@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="Roboto-bold"
-                android:text="Claim Details"
+                android:text="Driver Details"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/White"
                 android:textSize="25dp" />
@@ -62,7 +62,7 @@
                         />
 
                     <EditText
-                        android:id="@+id/email"
+                        android:id="@+id/driverName"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -97,14 +97,15 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/password"
+                        android:id="@+id/licenceNo"
 
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="Caeegories"
+                        android:text="License Expire Date"
                         android:textAllCaps="true"
                         android:textSize="15dp"
                         android:textColor="@color/White"
@@ -122,7 +123,33 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/password"
+                        android:id="@+id/LicenceExp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Categories"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:id="@+id/category"
 
                         />
 
@@ -148,7 +175,7 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/password"
+                        android:id="@+id/NIC"
 
                         />
 
@@ -163,7 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_below="@+id/line1"
-                android:layout_marginTop="220dp"
+                android:layout_marginTop="140dp"
                 android:text="Next"
                 android:textAllCaps="false"
                 android:textColor="@color/White"
