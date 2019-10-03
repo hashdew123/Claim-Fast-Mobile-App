@@ -200,6 +200,7 @@
                 android:layout_alignRight="@id/line1"
                 android:background="@drawable/click_button"
                 android:textSize="16dp"
+                android:onClick="SaveDriverCliam"
                 />
 
         </RelativeLayout>
