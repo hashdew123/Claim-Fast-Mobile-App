@@ -1,10 +1,12 @@
 package com.example.claimfast2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,7 +32,7 @@ public class claimDriverForm extends AppCompatActivity {
     private EditText Categories;
     private EditText NIC;
 
-    private static final String KEY_next = "next";
+    private Button next;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -45,9 +47,21 @@ public class claimDriverForm extends AppCompatActivity {
         Categories = findViewById(R.id.category);
         NIC = findViewById(R.id.NIC);
 
+//        next = (Button) findViewById(R.id.next);
+
+//        next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(claimDriverForm.this, claimDamageForm.class);
+//                startActivity(intent);
+//                finish();
+//                return;
+//            }
+//        });
+
     }
 
-    public void SaveDriverCliam(View v){
+    public void SaveDriverClaim(View v){
         String dname = Driver_Name.getText().toString();
         String license_No = License_no.getText().toString();
         String license_exp = License_Exp.getText().toString();
@@ -61,11 +75,16 @@ public class claimDriverForm extends AppCompatActivity {
         driverClaim.put(KEY_Categories, categories);
         driverClaim.put(KEY_NIC, nic);
 
-        db.collection("Claims").document("Driver Claim Details").set(driverClaim)
+        db.collection("Claims").document(  "Driver Claim Details").set(driverClaim)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(claimDriverForm.this,"Successful",Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(claimDriverForm.this, claimDamageForm.class);
+                        startActivity(intent);
+                        finish();
+                        return;
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
