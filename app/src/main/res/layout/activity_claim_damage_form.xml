@@ -1,9 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/drag_bg"
     tools:context=".claimDamageForm">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_below="@+id/imgView_logo"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="Roboto-bold"
+                android:text="Damage Details"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/White"
+                android:textSize="25dp" />
+
+            <!--Edit margin between all components -->
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_below="@+id/tv_login"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:text="Insured Vehicle damage Details"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Caused of Damage"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/driverName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Knocked on"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:id="@+id/licenceNo"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Place of accident"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:id="@+id/LicenceExp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Special Notes"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:id="@+id/category"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:text="Third party damage Details"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Nature of damages"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Third Party claiment"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Amount claimed"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        />
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/line1"
+                android:layout_marginTop="100dp"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+                android:fontFamily="roboto-bold"
+                android:paddingRight="50dp"
+                android:paddingLeft="50dp"
+                android:layout_alignRight="@id/line1"
+                android:background="@drawable/click_button"
+                android:textSize="16dp"/>
+                <!--android:onClick=""-->
+                />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>
