@@ -16,11 +16,22 @@ public class agentHomePage extends AppCompatActivity {
         setContentView(R.layout.activity_agent_home_page);
 
         btn_accidentMap = (Button) findViewById(R.id.accidentMap);
+        btn_submitclaim = (Button) findViewById(R.id.claimMenu);
 
         btn_accidentMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(agentHomePage.this, agentMap.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+        btn_submitclaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(agentHomePage.this, claimDriverForm.class);
                 startActivity(intent);
                 finish();
                 return;
