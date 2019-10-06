@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Claim_images">
+    tools:context=".agentLogin"
+    android:background="@drawable/drag_bg">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="700dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_centerInParent="true">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_below="@+id/imgView_logo"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="Roboto-bold"
+                android:text="Upload accident images"
+                android:textColor="@color/White"
+                android:layout_centerHorizontal="true"
+                android:textSize="25dp" />
+
+            <!--Edit margin between all components -->
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_below="@+id/tv_login"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+ </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_selectImages"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/line1"
+                android:layout_marginTop="25dp"
+                android:text="Select Images"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+                android:fontFamily="roboto-bold"
+                android:paddingRight="70dp"
+                android:paddingLeft="70dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/click_button"
+                android:textSize="16dp"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/v_uploadList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/btn_selectImages"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
