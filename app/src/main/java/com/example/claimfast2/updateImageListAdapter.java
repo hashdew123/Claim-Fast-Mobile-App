@@ -1,19 +1,68 @@
 package com.example.claimfast2;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class updateImageListAdapter extends RecyclerView.Adapter<updateImageListAdapter.ViewHolder> {
 
+        public List<String> fileNameList;
+        public List<String> fileDoneList;
+
+    public updateImageListAdapter(List<String> fileNameList,List<String>fileDoneList){
+            this.fileDoneList = fileDoneList;
+            this.fileNameList = fileNameList;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_list_item, parent,false);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+
+        String fileName = fileNameList.get(position);
+        holder.fileNameView.setText(fileName);
+
+        String fileDone = fileDoneList.get(position);
+
+        if(fileDone.equals("uploading")){
+            holder.fileDoneView.setImageResource(R.drawable.ic_radio_button_uncheck);
+        }else{
+            holder.fileDoneView.setImageResource(R.drawable.ic_radio_button_checked);
+        }
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return fileNameList.size();
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        View mView;
+
+        public TextView fileNameView;
+        public ImageView fileDoneView;
+
         public ViewHolder(View itemView){
             super(itemView);
-        }
 
-//        Android Studio - Firebase Multiple Files Upload - Part 1_2 - YouTube 10.55
+            mView = itemView;
+
+            fileNameView = (TextView) mView.findViewById(R.id.upload_fileName);
+            fileDoneView = (ImageView) mView.findViewById(R.id.image_uploaded);
+
+        }
 
     }
 }
