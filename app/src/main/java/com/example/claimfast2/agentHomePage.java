@@ -31,7 +31,7 @@ public class agentHomePage extends AppCompatActivity {
         btn_submitclaim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(agentHomePage.this, claimDriverForm.class);
+                Intent intent = new Intent(agentHomePage.this, Enter_policyId.class);
                 startActivity(intent);
                 finish();
                 return;
