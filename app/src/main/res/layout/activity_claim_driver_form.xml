@@ -203,6 +203,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/Th_vehiNo"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -227,6 +228,32 @@
                         />
 
                     <EditText
+                        android:id="@+id/Th_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="NIC"
+                        android:textAllCaps="true"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:fontFamily="Roboto-thin"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/Th_nic"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -251,30 +278,7 @@
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/et_bg"
-                        android:fontFamily="roboto-thin"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/White"
-                        android:textSize="15dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Address"
-                        android:textAllCaps="true"
-                        android:textSize="15dp"
-                        android:textColor="@color/White"
-                        android:fontFamily="Roboto-thin"
-
-                        />
-
-                    <EditText
+                        android:id="@+id/Th_address"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -298,6 +302,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/Th_contactNo"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"

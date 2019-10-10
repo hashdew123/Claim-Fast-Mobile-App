@@ -26,12 +26,23 @@ public class claimDriverForm extends AppCompatActivity {
     private static final String KEY_License_Exp = "License Expire Date";
     private static final String KEY_Categories = "Categories";
     private static final String KEY_NIC = "NIC";
+    private static final String KEY_TH_VehiNo = "Third party Vehicle No";
+    private static final String KEY_TH_Name = "Third party Name";
+    private static final String KEY_TH_Nic = "Third party Nic";
+    private static final String KEY_TH_Address = "Third party Address";
+    private static final String KEY_TH_ContactNo = "Third party Contact No";
 
     private EditText Driver_Name;
     private EditText License_no;
     private EditText License_Exp;
     private EditText Categories;
     private EditText NIC;
+
+    private EditText th_VehiNo;
+    private EditText th_name;
+    private EditText th_nic;
+    private EditText th_address;
+    private EditText th_contactNo;
 
     private Button next;
 
@@ -48,6 +59,13 @@ public class claimDriverForm extends AppCompatActivity {
         Categories = findViewById(R.id.category);
         NIC = findViewById(R.id.NIC);
 
+        th_VehiNo = findViewById(R.id.Th_vehiNo);
+        th_name = findViewById(R.id.Th_name);
+        th_nic = findViewById(R.id.Th_nic);
+        th_address = findViewById(R.id.Th_address);
+        th_contactNo = findViewById(R.id.Th_contactNo);
+
+
 //        next = (Button) findViewById(R.id.next);
 
 //        next.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +79,6 @@ public class claimDriverForm extends AppCompatActivity {
 //        });
 
 
-
     }
 
     public void SaveDriverClaim(View v){
@@ -71,6 +88,12 @@ public class claimDriverForm extends AppCompatActivity {
         String categories = Categories.getText().toString();
         String nic = NIC.getText().toString();
 
+        String get_th_vehino = th_VehiNo.getText().toString();
+        String get_th_name = th_name.getText().toString();
+        String get_th_nic = th_nic.getText().toString();
+        String get_th_address = th_address.getText().toString();
+        String get_th_contactno = th_contactNo.getText().toString();
+
         Map<String, Object> driverClaim = new HashMap<>();
         driverClaim.put(KEY_Driver_Name, dname);
         driverClaim.put(KEY_License_no, license_No);
@@ -78,11 +101,18 @@ public class claimDriverForm extends AppCompatActivity {
         driverClaim.put(KEY_Categories, categories);
         driverClaim.put(KEY_NIC, nic);
 
+        driverClaim.put(KEY_TH_VehiNo, get_th_vehino);
+        driverClaim.put(KEY_TH_Name, get_th_name);
+        driverClaim.put(KEY_TH_Nic, get_th_nic);
+        driverClaim.put(KEY_TH_Address, get_th_address);
+        driverClaim.put(KEY_TH_ContactNo, get_th_contactno);
 
+        //Get policy ID from policy ID page
         Intent intent = getIntent();
         String policy_Id = intent.getStringExtra(Enter_policyId.POLICY_ID);
-        Toast.makeText(claimDriverForm.this,"Successful" + policy_Id+ "YES",Toast.LENGTH_SHORT).show();
-        System.out.println("This is the policy ID"+ policy_Id + "Got it");
+//        Toast.makeText(claimDriverForm.this,"Successful" + policy_Id+ "YES",Toast.LENGTH_SHORT).show();
+//        System.out.println("This is the policy ID"+ policy_Id + "Got it");
+
         db.collection(policy_Id).document("Driver Claim Details").set(driverClaim, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
