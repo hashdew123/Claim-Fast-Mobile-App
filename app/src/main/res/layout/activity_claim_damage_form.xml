@@ -74,7 +74,7 @@
                         />
 
                     <EditText
-                        android:id="@+id/driverName"
+                        android:id="@+id/causeDamage"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -100,6 +100,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/knockedOn"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -109,11 +110,10 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/licenceNo"
-
                         />
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -135,7 +135,7 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/LicenceExp"
+                        android:id="@+id/placeOfAccident"
 
                         />
 
@@ -161,7 +161,7 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
-                        android:id="@+id/category"
+                        android:id="@+id/specialNotes"
 
                         />
 
@@ -191,6 +191,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/natureOfDamage"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -215,6 +216,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/thirdPartyClaiment"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -239,6 +241,7 @@
                         />
 
                     <EditText
+                        android:id="@+id/amountClaimed"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
@@ -272,8 +275,8 @@
                 android:paddingLeft="50dp"
                 android:layout_alignRight="@id/line1"
                 android:background="@drawable/click_button"
-                android:textSize="16dp"/>
-                <!--android:onClick=""-->
+                android:textSize="16dp"
+                android:onClick="SaveDamageDetail"
                 />
 
         </RelativeLayout>
