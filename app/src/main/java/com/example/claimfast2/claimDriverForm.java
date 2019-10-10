@@ -21,6 +21,8 @@ import java.util.Map;
 public class claimDriverForm extends AppCompatActivity {
     private static final String TAG = "claimDriverForm";
 
+    public static final String POLICY_ID = "com.claimfast.app.POLICY_ID";
+
     private static final String KEY_Driver_Name = "Driver Name";
     private static final String KEY_License_no = "License Number";
     private static final String KEY_License_Exp = "License Expire Date";
@@ -43,8 +45,6 @@ public class claimDriverForm extends AppCompatActivity {
     private EditText th_nic;
     private EditText th_address;
     private EditText th_contactNo;
-
-    private Button next;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -109,7 +109,7 @@ public class claimDriverForm extends AppCompatActivity {
 
         //Get policy ID from policy ID page
         Intent intent = getIntent();
-        String policy_Id = intent.getStringExtra(Enter_policyId.POLICY_ID);
+        final String policy_Id = intent.getStringExtra(Enter_policyId.POLICY_ID);
 //        Toast.makeText(claimDriverForm.this,"Successful" + policy_Id+ "YES",Toast.LENGTH_SHORT).show();
 //        System.out.println("This is the policy ID"+ policy_Id + "Got it");
 
@@ -120,6 +120,7 @@ public class claimDriverForm extends AppCompatActivity {
                         Toast.makeText(claimDriverForm.this,"Successful",Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(claimDriverForm.this, claimDamageForm.class);
+                        intent.putExtra(POLICY_ID, policy_Id);
                         startActivity(intent);
                         finish();
                         return;

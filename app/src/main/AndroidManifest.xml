@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Enter_policyId"></activity>
         <activity android:name=".Claim_images" />
-        <activity android:name=".claimDamageForm" />
+        <activity android:name=".claimDamageForm" android:parentActivityName=".claimDriverForm"/>
         <activity android:name=".claimDriverForm" android:parentActivityName=".Enter_policyId"/>
         <activity android:name=".clientUserProfile" />
         <activity android:name=".agentHomePage" />
