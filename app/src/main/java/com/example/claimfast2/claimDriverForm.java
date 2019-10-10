@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,6 +60,8 @@ public class claimDriverForm extends AppCompatActivity {
 //            }
 //        });
 
+
+
     }
 
     public void SaveDriverClaim(View v){
@@ -75,7 +78,12 @@ public class claimDriverForm extends AppCompatActivity {
         driverClaim.put(KEY_Categories, categories);
         driverClaim.put(KEY_NIC, nic);
 
-        db.collection("Claims").document(  "Driver Claim Details").set(driverClaim)
+
+        Intent intent = getIntent();
+        String policy_Id = intent.getStringExtra(Enter_policyId.POLICY_ID);
+        Toast.makeText(claimDriverForm.this,"Successful" + policy_Id+ "YES",Toast.LENGTH_SHORT).show();
+        System.out.println("This is the policy ID"+ policy_Id + "Got it");
+        db.collection(policy_Id).document("Driver Claim Details").set(driverClaim, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
