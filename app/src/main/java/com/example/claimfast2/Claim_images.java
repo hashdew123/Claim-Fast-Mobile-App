@@ -23,7 +23,7 @@ import java.util.List;
 
 public class Claim_images extends AppCompatActivity {
 
-    private static final int RESULT_LOAD_IMAGE =256;
+    private static final int RESULT_LOAD_IMAGE =1;
     private Button bSelectImages;
     private RecyclerView uploadList;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".clientHomePage"
+    tools:context=".agentHomePage"
     android:background="@drawable/drag_bg">
 
     <TextView
@@ -14,52 +14,143 @@
         android:layout_marginTop="24dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="Roboto-bold"
-        android:text="Home"
+        android:text="Claim fast agent home"
         android:textColor="@color/White"
         android:textSize="30dp" />
 
-
+    <ImageView
+        android:id="@+id/imgView_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/bTitle"
+        android:src="@drawable/logo_small"
+        />
 
     <Button
         android:id="@+id/accidentMap"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:background="@drawable/btn_bg"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/homebtn_bg"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/bTitle"
+        android:layout_below="@id/imgView_logo"
         android:textColor="@color/White"
-        android:layout_marginTop="40dp"
-        android:textSize="25dp"
+        android:layout_marginTop="60dp"
+        android:textSize="20dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="Load accident map" />
 
     <Button
         android:id="@+id/claimMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:background="@drawable/btn_bg"
+        android:layout_height="60dp"
+        android:layout_width="300dp"
+        android:background="@drawable/click_button"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/accidentMap"
         android:textColor="@color/White"
-        android:layout_marginTop="40dp"
-        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="Submit a claim" />
 
     <Button
         android:id="@+id/checkClient"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:background="@drawable/btn_bg"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/click_button"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/claimMenu"
         android:textColor="@color/White"
-        android:layout_marginTop="40dp"
-        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
-        android:text="Client Policy Details" />
+        android:text="Client policy Details" />
+
+
+
 
 </RelativeLayout>
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".clientHomePage"-->
+    <!--android:background="@drawable/drag_bg">-->
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="40dp"-->
+        <!--android:layout_marginLeft="40dp"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:layout_centerInParent="true">-->
+        <!---->
+    <!--<TextView-->
+        <!--android:id="@+id/bTitle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:fontFamily="Roboto-bold"-->
+        <!--android:text="Home"-->
+        <!--android:textColor="@color/White"-->
+        <!--android:textSize="30dp" />-->
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/accidentMap"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:background="@drawable/btn_bg"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@id/bTitle"-->
+        <!--android:textColor="@color/White"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:textSize="25dp"-->
+        <!--android:paddingLeft="25dp"-->
+        <!--android:paddingRight="25dp"-->
+        <!--android:text="Load accident map" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/claimMenu"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:background="@drawable/btn_bg"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@id/accidentMap"-->
+        <!--android:textColor="@color/White"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:textSize="25dp"-->
+        <!--android:paddingLeft="25dp"-->
+        <!--android:paddingRight="25dp"-->
+        <!--android:text="Submit a claim" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/checkClient"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:background="@drawable/btn_bg"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@id/claimMenu"-->
+        <!--android:textColor="@color/White"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:textSize="25dp"-->
+        <!--android:paddingLeft="25dp"-->
+        <!--android:paddingRight="25dp"-->
+        <!--android:text="Client Policy Details" />-->
+        <!---->
+    <!--</RelativeLayout>-->
+
+<!--</RelativeLayout>-->
