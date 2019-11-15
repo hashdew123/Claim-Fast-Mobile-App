@@ -59,7 +59,7 @@
         android:text="Submit a claim" />
 
     <Button
-        android:id="@+id/checkClient"
+        android:id="@+id/policyDetails"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/click_button"

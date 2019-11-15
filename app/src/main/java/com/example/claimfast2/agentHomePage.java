@@ -10,6 +10,7 @@ public class agentHomePage extends AppCompatActivity {
 
     private Button btn_accidentMap;
     private Button btn_submitclaim;
+    private Button btn_policyDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class agentHomePage extends AppCompatActivity {
 
         btn_accidentMap = (Button) findViewById(R.id.accidentMap);
         btn_submitclaim = (Button) findViewById(R.id.claimMenu);
+        btn_policyDetails =  (Button) findViewById(R.id.policyDetails);
 
         btn_accidentMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +39,16 @@ public class agentHomePage extends AppCompatActivity {
                 return;
             }
         });
+
+        btn_policyDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(agentHomePage.this, policyDetails.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
     }
 }

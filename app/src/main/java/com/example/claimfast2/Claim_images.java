@@ -21,10 +21,12 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class Claim_images extends AppCompatActivity {
 
     private static final int RESULT_LOAD_IMAGE =1;
-    private Button bSelectImages;
+    private Button bSelectImages,bSubmitClaim;
     private RecyclerView uploadList;
 
     private List<String> fileNameList;
@@ -42,11 +44,12 @@ public class Claim_images extends AppCompatActivity {
 
         bSelectImages = (Button) findViewById(R.id.btn_selectImages);
         uploadList = (RecyclerView) findViewById(R.id.v_uploadList);
+        bSubmitClaim = (Button) findViewById(R.id.btn_done);
 
         fileNameList = new ArrayList<>();
         fileDoneList = new ArrayList<>();
 
-        UpdateImageListAdapter = new updateImageListAdapter(fileNameList,fileDoneList);
+        UpdateImageListAdapter = new updateImageListAdapter(fileNameList, fileDoneList);
 
         //Recycler View
 
@@ -55,18 +58,37 @@ public class Claim_images extends AppCompatActivity {
         uploadList.setAdapter(UpdateImageListAdapter);
 
 
-
         bSelectImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent= new Intent();
+                Intent intent = new Intent();
                 intent.setType("image/*");
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,"Select Pictures"),RESULT_LOAD_IMAGE);
+                startActivityForResult(Intent.createChooser(intent, "Select Pictures"), RESULT_LOAD_IMAGE);
             }
         });
+
+        bSubmitClaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SweetAlertDialog(Claim_images.this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Your claim is successfully submitted")
+                        .setConfirmText("Ok")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                Intent intent = new Intent(Claim_images.this, agentHomePage.class);
+                                startActivity(intent);
+                                finish();
+                                sDialog.dismissWithAnimation();
+                                return;
+                            }
+                        }).show();
+            }
+        });
+
     }
 
     @Override

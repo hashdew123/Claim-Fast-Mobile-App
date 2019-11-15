@@ -17,10 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Enter_policyId"></activity>
+        <activity android:name=".policyDetails"></activity>
+        <activity android:name=".Enter_policyId" />
         <activity android:name=".Claim_images" />
-        <activity android:name=".claimDamageForm" android:parentActivityName=".claimDriverForm"/>
-        <activity android:name=".claimDriverForm" android:parentActivityName=".Enter_policyId"/>
+        <activity
+            android:name=".claimDamageForm"
+            android:parentActivityName=".claimDriverForm" />
+        <activity
+            android:name=".claimDriverForm"
+            android:parentActivityName=".Enter_policyId" />
         <activity android:name=".clientUserProfile" />
         <activity android:name=".agentHomePage" />
         <activity android:name=".clientMap" />
