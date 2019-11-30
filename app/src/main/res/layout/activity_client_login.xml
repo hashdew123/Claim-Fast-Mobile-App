@@ -104,6 +104,7 @@
                         android:paddingRight="15dp"
                         android:textColor="@color/White"
                         android:textSize="15dp"
+                        android:inputType="textPassword"
                         android:id="@+id/password"
 
                         />
@@ -113,22 +114,22 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_below="@+id/login"
-                android:layout_marginTop="30dp"
-                android:text="Forget Password"
-                android:textAllCaps="false"
-                android:textColor="@color/White"
-                android:fontFamily="roboto-bold"
-                android:paddingRight="70dp"
-                android:paddingLeft="70dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/click_button"
-                android:textSize="16dp"
-                />
+            <!--<Button-->
+                <!--android:id="@+id/register"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_below="@+id/login"-->
+                <!--android:layout_marginTop="30dp"-->
+                <!--android:text="Forget Password"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/White"-->
+                <!--android:fontFamily="roboto-bold"-->
+                <!--android:paddingRight="70dp"-->
+                <!--android:paddingLeft="70dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:background="@drawable/click_button"-->
+                <!--android:textSize="16dp"-->
+                <!--/>-->
 
             <Button
                 android:id="@+id/login"
