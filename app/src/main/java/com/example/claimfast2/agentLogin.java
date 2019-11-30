@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class agentLogin extends AppCompatActivity {
 
     private EditText mEmail, mPassword;
@@ -51,7 +53,7 @@ public class agentLogin extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);
 
         mLogin = (Button) findViewById(R.id.login);
-        mRegistration = (Button) findViewById(R.id.register);
+//        mRegistration = (Button) findViewById(R.id.register);
 
 
 
@@ -87,7 +89,9 @@ public class agentLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(agentLogin.this, "Sign in error", Toast.LENGTH_SHORT).show();
+                            new SweetAlertDialog(agentLogin.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Please enter correct username and password")
+                                    .setConfirmText("Ok").show();
                         }else{
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Agents").child(user_id);

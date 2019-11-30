@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class clientLogin extends AppCompatActivity {
 
@@ -51,7 +54,7 @@ public class clientLogin extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);
 
         mLogin = (Button) findViewById(R.id.login);
-        mRegistration = (Button) findViewById(R.id.register);
+//        mRegistration = (Button) findViewById(R.id.register);
 
         // Registration was implemented to add users
 
@@ -84,7 +87,9 @@ public class clientLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(clientLogin.this, "Sign in error", Toast.LENGTH_SHORT).show();
+                            new SweetAlertDialog(clientLogin.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Please enter correct username and password")
+                                    .setConfirmText("Ok").show();
                         } else {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Clients").child(user_id);
