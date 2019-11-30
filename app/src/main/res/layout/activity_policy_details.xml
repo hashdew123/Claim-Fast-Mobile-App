@@ -46,10 +46,15 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
                     <EditText
-                        android:id="@+id/txt_edit"
+                        android:id="@+id/txt_policyId"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/White" />
+                        android:layout_height="40dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="roboto-thin"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/White"
+                        android:textSize="15dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -59,27 +64,32 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
                     <Button
-                        android:id="@+id/btn_loadPolicyDetials"
+                        android:id="@+id/btn_loadPolicyDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
+                        android:layout_gravity="center"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/btn_get"
+                        android:onClick="loadDetails"
+                        android:background="@drawable/btn_policy_get"
                         />
                 </LinearLayout>
+
             </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_load_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text=""
+            android:textColor="@color/White"
+            android:layout_marginTop="20sp"
+            android:layout_below="@id/rellay1"
+            />
+
     </RelativeLayout>
 </ScrollView>
+
