@@ -194,6 +194,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                         List<Object> map = (List<Object>) dataSnapshot.getValue();
                         double locationLat = 0;
                         double locationlng = 0;
+                        bRequest.setText("Agent found");
                         if(map.get(0) != null){
                             locationLat = Double.parseDouble(map.get(0).toString());
                         }
@@ -204,6 +205,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                         if(mAgentMarker != null){
                             mAgentMarker.remove();
                         }
+
                         Location locl = new Location("");
                         locl.setLatitude(accidentLocation.latitude);
                         locl.setLongitude(accidentLocation.longitude);
@@ -315,7 +317,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
     }
 
 
-    /*final int LOCATION_REQUEST_CODE = 1;
+    final int LOCATION_REQUEST_CODE = 1;
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -329,7 +331,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                 break;
             }
         }
-    }*/
+    }
     //When a driver gets out from a activity zoom out
     @Override
     protected void onStop() {
