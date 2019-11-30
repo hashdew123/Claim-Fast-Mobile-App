@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Hashan Pallewatte"
+                android:text="User Profile"
                 android:textColor="@color/White"
                 android:textStyle="bold"
                 android:textSize="18sp"
@@ -66,7 +66,7 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="125"
+                        android:text="4"
                         android:textColor="@color/gradStop"/>
                 </LinearLayout>
                 <LinearLayout
@@ -87,7 +87,7 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="15/04/2020"
+                        android:text="15/04/2022"
                         android:textColor="@color/gradStop"/>
                 </LinearLayout>
                 <LinearLayout
@@ -99,7 +99,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Claims"
+                        android:text="Type"
                         android:textSize="20sp"
                         />
                     <TextView
@@ -108,7 +108,7 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="125"
+                        android:text="Full"
                         android:textColor="@color/gradStop"/>
                 </LinearLayout>
             </LinearLayout>
@@ -121,67 +121,53 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@color/White"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:paddingLeft="25dp"
+            android:gravity="center"
             >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/policy_id_vec"
-                />
-            <TextView
+
+            <EditText
+                android:id="@+id/txt_policyId"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:width="200dp"
+                android:height="30dp"
+                android:layout_marginLeft="10dp"
                 android:paddingLeft="30dp"
                 android:textSize="15sp"
-                android:text="PolicyID : 52145526874A"
+                android:text=""
+                android:textColor="@color/White"
+                android:background="@drawable/et_bg"
                 />
+            <Button
+                android:id="@+id/btn_loadPolicyDetails"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:onClick="loadDetails"
+                android:background="@drawable/btn_policy_get"
+                />
+
+
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/txt_load_details"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:paddingLeft="25dp"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/policy_id_vec"
-                />
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:textSize="15sp"
-                android:text="PolicyID : 52145526874A"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:paddingLeft="25dp"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/policy_id_vec"
-                />
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:textSize="15sp"
-                android:text="PolicyID : 52145526874A"
-                />
-        </LinearLayout>
+            android:textSize="20sp"
+            android:text=""
+            android:textColor="@color/White"
+            android:layout_marginTop="20sp"
+            android:layout_below="@id/rellay1"
+            />
+
     </LinearLayout>
 </LinearLayout>
