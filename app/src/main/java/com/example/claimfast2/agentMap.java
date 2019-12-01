@@ -133,14 +133,14 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
                if(dataSnapshot.exists() && !clientId.equals("")){
                    List<Object> map = (List<Object>) dataSnapshot.getValue();
                    double locationLat = 0;
-                   double locationlng = 0;
+                   double locationLng = 0;
                    if(map.get(0) != null){
                        locationLat = Double.parseDouble(map.get(0).toString());
                    }
                    if(map.get(1) != null){
-                       locationlng = Double.parseDouble(map.get(1).toString());
+                       locationLng = Double.parseDouble(map.get(1).toString());
                    }
-                   LatLng agentLatLng = new LatLng(locationLat,locationlng);
+                   LatLng agentLatLng = new LatLng(locationLat,locationLng);
                    accidentLocMarker = mMap.addMarker(new MarkerOptions().position(agentLatLng).title("Accident Location"));
 
                }
@@ -222,11 +222,11 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
 
 
 
-      /*  GeoHash geoHash = new GeoHash(new GeoLocation(location.getLatitude(),location.getLongitude()));
-        Map<String, Object> updates = new HashMap<>();
-        updates.put("g", geoHash.getGeoHashString());
-        updates.put("l", Arrays.asList(location.getLatitude(),location.getLongitude()));
-        geoFireAvailable.setValue(updates,geoHash.getGeoHashString()); */
+//       GeoHash geoHash = new GeoHash(new GeoLocation(location.getLatitude(),location.getLongitude()));
+//        Map<String, Object> updates = new HashMap<>();
+//        updates.put("g", geoHash.getGeoHashString());
+//        updates.put("l", Arrays.asList(location.getLatitude(),location.getLongitude()));
+//        geoFireAvailable.setValue(updates,geoHash.getGeoHashString());
     }
 
 
