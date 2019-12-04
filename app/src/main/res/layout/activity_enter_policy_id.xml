@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".agentLogin"
+    tools:context=".Enter_policyId"
     android:background="@drawable/drag_bg">
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/btn_vec_back"
+        android:onClick="goBack" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

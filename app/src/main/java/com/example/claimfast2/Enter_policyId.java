@@ -25,9 +25,6 @@ public class Enter_policyId extends AppCompatActivity {
         policyId = (EditText) findViewById(R.id.txt_policyid);
         enter = (Button) findViewById(R.id.btn_enter);
 
-
-
-
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,5 +39,14 @@ public class Enter_policyId extends AppCompatActivity {
                 }
         });
     }
+
+
+    public void goBack(View v){
+        Intent intent = new Intent(Enter_policyId.this, agentHomePage.class);
+        startActivity(intent);
+        finish();
+        return;
+    }
+
 
 }
