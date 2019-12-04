@@ -1,5 +1,6 @@
 package com.example.claimfast2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -60,6 +61,13 @@ public class policyDetails extends AppCompatActivity {
 
 
 
+    }
+
+    public void goBack(View v){
+        Intent intent = new Intent(policyDetails.this, agentHomePage.class);
+        startActivity(intent);
+        finish();
+        return;
     }
 
     public void loadDetails(View v){
