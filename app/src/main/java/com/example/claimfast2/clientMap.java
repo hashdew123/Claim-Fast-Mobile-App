@@ -54,6 +54,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
     Marker mLocationMarker;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +91,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
                 if(requestBol){
                             requestBol = false;
                             geoQuery.removeAllListeners();
-                            //AgentLocationRef.removeEventListener(AgentLocationRefListener); //commented
+                            AgentLocationRef.removeEventListener(AgentLocationRefListener); //commented
 
                             if(agentFoundId != null){
                                 DatabaseReference agentRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Agents").child(agentFoundId);
@@ -123,6 +124,13 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
             }
         });
 
+    }
+
+    public void goBack(View v){
+        Intent intent = new Intent(clientMap.this, clientHomePage.class);
+        startActivity(intent);
+        finish();
+        return;
     }
 
     private int radius = 1;
@@ -216,7 +224,7 @@ public class clientMap extends FragmentActivity implements OnMapReadyCallback, G
 
                         float distance = locl.distanceTo(loc2);
 
-                        bdistance = (Button) findViewById(R.id.bdistance);
+//                        bdistance = (Button) findViewById(R.id.bdistance);
 
                         bdistance.setText("hey hey");
 

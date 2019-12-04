@@ -102,17 +102,7 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
                 if(dataSnapshot.exists()) {
                     clientId = dataSnapshot.getValue().toString();
                     getAssignedClientPickUpLocation();
-                }else{
-                    clientId="";
-                    if (accidentLocMarker!=null){
-                        accidentLocMarker.remove();
-                    }
-                    if(assignedClientAccidentLocationRefListener != null){
-                        assignedClientAccidentLocationRef.removeEventListener(assignedClientAccidentLocationRefListener);
-                    }
-
                 }
-
             }
 
             @Override
@@ -122,29 +112,25 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
         });
     }
 
-    Marker accidentLocMarker;
-    private DatabaseReference assignedClientAccidentLocationRef;
-    private ValueEventListener assignedClientAccidentLocationRefListener;
+
     public void getAssignedClientPickUpLocation(){
-        assignedClientAccidentLocationRef = FirebaseDatabase.getInstance().getReference().child("clientRequest").child(clientId).child("l");
-        assignedClientAccidentLocationRefListener = assignedClientAccidentLocationRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference assignedCustomerPickupLocationRef = FirebaseDatabase.getInstance().getReference().child("clientRequest").child(clientId).child("l");
+        assignedCustomerPickupLocationRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               if(dataSnapshot.exists() && !clientId.equals("")){
-                   List<Object> map = (List<Object>) dataSnapshot.getValue();
-                   double locationLat = 0;
-                   double locationLng = 0;
-                   if(map.get(0) != null){
-                       locationLat = Double.parseDouble(map.get(0).toString());
-                   }
-                   if(map.get(1) != null){
-                       locationLng = Double.parseDouble(map.get(1).toString());
-                   }
-                   LatLng agentLatLng = new LatLng(locationLat,locationLng);
-                   accidentLocMarker = mMap.addMarker(new MarkerOptions().position(agentLatLng).title("Accident Location"));
-
-               }
-
+                if(dataSnapshot.exists()){
+                    List<Object> map = (List<Object>) dataSnapshot.getValue();
+                    double locationLat = 0;
+                    double locationLng = 0;
+                    if(map.get(0) != null){
+                        locationLat = Double.parseDouble(map.get(0).toString());
+                    }
+                    if(map.get(1) != null){
+                        locationLng = Double.parseDouble(map.get(1).toString());
+                    }
+                    LatLng driverLatLng = new LatLng(locationLat,locationLng);
+                    mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Accident location"));
+                }
             }
 
             @Override
@@ -152,6 +138,13 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
 
             }
         });
+    }
+
+    public void goBack(View v){
+        Intent intent = new Intent(agentMap.this, agentHomePage.class);
+        startActivity(intent);
+        finish();
+        return;
     }
 
 

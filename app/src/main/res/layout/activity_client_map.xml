@@ -27,18 +27,33 @@
         android:textColor="@color/White"
         android:text="LOG OUT"/>
 
+    <!--<Button-->
+        <!--android:id="@+id/bdistance"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:fontFamily="Roboto-bold"-->
+        <!--android:text="Distance Test"-->
+        <!--android:layout_above="@+id/request"-->
+        <!--android:textAlignment="center"-->
+        <!--android:layout_gravity="left"-->
+        <!--android:textColor="@color/White"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:textSize="15dp" />-->
+
     <Button
-        android:id="@+id/bdistance"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:fontFamily="Roboto-bold"
-        android:text="Distance Test"
         android:layout_above="@+id/request"
         android:textAlignment="center"
         android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:textColor="@color/White"
-        android:background="@color/colorPrimary"
-        android:textSize="15dp" />
+        android:background="@drawable/btn_vec_back"
+        android:textSize="15dp"
+        android:onClick="goBack"/>
 
     <Button
         android:layout_width="match_parent"
@@ -48,6 +63,7 @@
         android:layout_gravity="bottom"
         android:background="@drawable/btn_map"
         android:textColor="@color/White"
+
         />
 
 
