@@ -148,15 +148,6 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -194,21 +185,26 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
             //Camera moves with the location
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(15)); //Vary from 1 to 21
+            LatLng sydney = new LatLng(6.815791, 79.891351);
+            mMap.addMarker(new MarkerOptions().position(sydney).title("Accident here"));
             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference refAvailable = FirebaseDatabase.getInstance().getReference("agentsAvailable");
             DatabaseReference refWorking = FirebaseDatabase.getInstance().getReference("agentWorking");
             GeoFire geoFireAvailable = new GeoFire(refAvailable);
             GeoFire geoFireWorking = new GeoFire(refWorking);
-            switch(clientId){
-                case "":
-                    geoFireWorking.removeLocation(userId);
-                    geoFireAvailable.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
-                    break;
-                default:
-                    geoFireAvailable.removeLocation(userId);
-                    geoFireWorking.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
-                    break;
-            }
+//            switch(clientId){
+//                case "":
+//                    geoFireWorking.removeLocation(userId);
+//                    geoFireAvailable.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
+//                    break;
+//                default:
+//                    geoFireAvailable.removeLocation(userId);
+//                    geoFireWorking.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
+//                    break;
+//            }
+//            LatLng sydney = new LatLng(6.815791, 79.891351);
+//            mMap.addMarker(new MarkerOptions().position(sydney).title("Accident here"));
+//            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         }
 
@@ -220,6 +216,9 @@ public class agentMap extends FragmentActivity implements OnMapReadyCallback,Goo
 //        updates.put("g", geoHash.getGeoHashString());
 //        updates.put("l", Arrays.asList(location.getLatitude(),location.getLongitude()));
 //        geoFireAvailable.setValue(updates,geoHash.getGeoHashString());
+//        LatLng sydney = new LatLng(6.815791, 79.891351);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Accident here"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
 
