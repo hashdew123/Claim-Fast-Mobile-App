@@ -1,5 +1,6 @@
 package com.example.claimfast2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -61,6 +63,14 @@ public class clientUserProfile extends AppCompatActivity {
 
         textViewDetails = findViewById(R.id.txt_load_details);
         policyID = findViewById(R.id.txt_policyId);
+    }
+
+
+    public void goBack(View v){
+        Intent intent = new Intent(clientUserProfile.this, clientHomePage.class);
+        startActivity(intent);
+        finish();
+        return;
     }
 
     public void loadDetails(View v){

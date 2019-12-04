@@ -19,10 +19,12 @@
             android:layout_height="300dp"
             android:orientation="vertical">
             <Button
+                android:id="@+id/btn_back"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:onClick="goBack"
                 android:background="@drawable/btn_vec_back"
                 />
             <ImageView
