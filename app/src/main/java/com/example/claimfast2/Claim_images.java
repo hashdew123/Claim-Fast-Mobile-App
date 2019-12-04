@@ -18,12 +18,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Claim_images extends AppCompatActivity {
+    public static final String POLICY_ID = "com.claimfast.app.POLICY_ID";
 
     private static final int RESULT_LOAD_IMAGE =1;
     private Button bSelectImages,bSubmitClaim;
@@ -34,6 +38,9 @@ public class Claim_images extends AppCompatActivity {
     private updateImageListAdapter UpdateImageListAdapter;
 
     private StorageReference mStorage;
+    public String formattedDate;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,12 @@ public class Claim_images extends AppCompatActivity {
         uploadList.setLayoutManager(new LinearLayoutManager(this));
         uploadList.setHasFixedSize(true);
         uploadList.setAdapter(UpdateImageListAdapter);
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        formattedDate = df.format(c);
+
+
 
 
         bSelectImages.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +108,9 @@ public class Claim_images extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Intent intent = getIntent();
+        final String policy_Id = intent.getStringExtra(POLICY_ID);
+
         if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
 
             if(data.getClipData()!= null){
@@ -110,7 +126,7 @@ public class Claim_images extends AppCompatActivity {
                     fileDoneList.add("Uploading");
                     UpdateImageListAdapter.notifyDataSetChanged();
 
-                    StorageReference fileToUpload = mStorage.child("Images").child(fileName);
+                    StorageReference fileToUpload = mStorage.child(policy_Id).child(formattedDate).child(fileName);
 
                     final int finalI =i;
                     fileToUpload.putFile(fileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
