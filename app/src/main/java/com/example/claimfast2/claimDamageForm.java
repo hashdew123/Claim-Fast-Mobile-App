@@ -15,12 +15,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class claimDamageForm extends AppCompatActivity {
     private static final String TAG = "claimDamageForm";
 
+    public static final String POLICY_ID = "com.claimfast.app.POLICY_ID";
 
     private static final String KEY_Damaage_Cause = "Cause of damage";
     private static final String KEY_Knocked_On = "Knocked on";
@@ -37,6 +42,7 @@ public class claimDamageForm extends AppCompatActivity {
     private EditText th_DamageNature;
     private EditText th_claiment;
     private EditText th_claimAmount;
+    public String formattedDate;
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -53,6 +59,10 @@ public class claimDamageForm extends AppCompatActivity {
         th_DamageNature = findViewById(R.id.natureOfDamage);
         th_claiment = findViewById(R.id.thirdPartyClaiment);
         th_claimAmount = findViewById(R.id.amountClaimed);
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        formattedDate = df.format(c);
     }
 
     public void SaveDamageDetail(View v){
@@ -77,16 +87,19 @@ public class claimDamageForm extends AppCompatActivity {
 
         //Get policy ID from policy ID page
         Intent intent = getIntent();
-        String policy_Id = intent.getStringExtra(claimDriverForm.POLICY_ID);
+        final String policy_Id = intent.getStringExtra(POLICY_ID);
        //Toast.makeText(claimDamageForm.this,"policy ID |-"+ policy_Id + "-| okay",Toast.LENGTH_SHORT).show();
 
-        db.collection(policy_Id).document("Driver Damage Details").set(damageDetails, SetOptions.merge())
+
+//        db.collection(policy_Id).document("Driver Damage Details").set(damageDetails, SetOptions.merge())
+
+        db.collection("Submitted Claims").document(policy_Id).collection(formattedDate).document("Driver Damage Details").set(damageDetails, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(claimDamageForm.this,"Successful",Toast.LENGTH_SHORT).show();
-
                         Intent intent = new Intent(claimDamageForm.this, Claim_images.class);
+                        intent.putExtra(POLICY_ID, policy_Id);
                         startActivity(intent);
                         finish();
                         return;

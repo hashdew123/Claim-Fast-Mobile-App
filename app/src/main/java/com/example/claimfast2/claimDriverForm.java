@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +48,7 @@ public class claimDriverForm extends AppCompatActivity {
     private EditText th_nic;
     private EditText th_address;
     private EditText th_contactNo;
+    public String formattedDate;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -64,6 +68,10 @@ public class claimDriverForm extends AppCompatActivity {
         th_nic = findViewById(R.id.Th_nic);
         th_address = findViewById(R.id.Th_address);
         th_contactNo = findViewById(R.id.Th_contactNo);
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        formattedDate = df.format(c);
 
 
 //        next = (Button) findViewById(R.id.next);
@@ -110,10 +118,14 @@ public class claimDriverForm extends AppCompatActivity {
         //Get policy ID from policy ID page
         Intent intent = getIntent();
         final String policy_Id = intent.getStringExtra(Enter_policyId.POLICY_ID);
+
+
 //        Toast.makeText(claimDriverForm.this,"Successful" + policy_Id+ "YES",Toast.LENGTH_SHORT).show();
 //        System.out.println("This is the policy ID"+ policy_Id + "Got it");
 
-        db.collection(policy_Id).document("Driver Claim Details").set(driverClaim, SetOptions.merge())
+//        db.collection(policy_Id).document("Driver Claim Details").set(driverClaim, SetOptions.merge())
+
+        db.collection("Submitted Claims").document(policy_Id).collection(formattedDate).document("Driver Claim Details").set(driverClaim, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
